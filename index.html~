@@ -1,4 +1,10 @@
 <html>
-   <head><title>Socket Server slides</title></head>
+   <head>
+      <title>Socket Server slides</title>
+   </head>
+   <script src="/socket.io/socket.io.js"></script>
+   <script>
+      const socket = io();
+   </script>
    <body>Hello</body>
 </html>
