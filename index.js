@@ -4,7 +4,11 @@ const io = require('socket.io')(http);
 let numUsers = 0;
 
 app.get('/',function(req,res){
-   res.sendfile('index.html');
+   if(numUsers > 2){
+      res.sendfile('index.html');
+   } else {
+      res.sendfile('full.html');
+   }
 });
 
 io.on('connection',function(socket){
@@ -13,7 +17,6 @@ io.on('connection',function(socket){
 
    socket.on('disconnect',function(){
       numUsers--;
-      
       console.log('user disconnected, numsers: ' + numUsers);
    })
 });
